@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>ResumeFinderApplication</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>SearchResumeJsp</servlet-name>
+		<jsp-file>/SearchResume.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SearchResumeJsp</servlet-name>
+		<url-pattern>/searchResumeJsp</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UploadResumeJsp</servlet-name>
+		<jsp-file>/UploadResume.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UploadResumeJsp</servlet-name>
+		<url-pattern>/uploadResumeJsp</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SearchResultJsp</servlet-name>
+		<jsp-file>/SearchResult.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SearchResultJsp</servlet-name>
+		<url-pattern>/searchResultJsp</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+		<param-name>filePath</param-name>
+		<param-value>C:\\Users\\CBT\\Desktop\\Resumes</param-value>
+	</context-param>
+
+</web-app>

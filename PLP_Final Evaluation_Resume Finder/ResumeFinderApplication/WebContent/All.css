@@ -1,0 +1,70 @@
+@charset "ISO-8859-1";
+
+.topnav {
+	overflow: hidden;
+	background-color: highlight;
+}
+
+/* Style the links inside the navigation bar */
+.topnav h1 {
+	float: left;
+	color: fuchsia;
+	text-align: center;
+	/* padding: 14px 16px; */
+	text-decoration: none;
+	font-family: inherit;
+	font-size: 40px;
+}
+
+/* Style the h1 tags*/
+h1 {
+	float: inherit;
+	color: black;
+	text-align: center;
+	/* padding: 14px 16px; */
+	text-decoration: none;
+	font-family: cursive;
+	font-size: 40px;
+}
+
+/* Style the inputs*/
+input[type=file], input[type=submit] {
+	text-align: center;
+	margin-left: 700px;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+input[type=text] {
+	text-align: center;
+	margin-left: 700px;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+	border-color: black;
+}
+
+/* Style the anchor tag*/
+a {
+	float: right;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+/* Style the body*/
+body {
+	background-color: white;
+}
+
+/* Style the th tag of table*/
+th {
+	text-align: left;
+	font-family: cursive;
+	font-size: large;
+}
+
+/* Style the td tag of table*/
+td {
+	font-family: cursive;
+}
