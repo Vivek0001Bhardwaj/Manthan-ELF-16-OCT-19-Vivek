@@ -21,7 +21,7 @@ public class ResumeDaoImpl implements ResumeDao {
 	String fExt = null;
 	List<File> at = null;
 
-	/*public void perform2(File fl,String searchText,StringTokenizer st)
+	public void perform2(File fl,String searchText,StringTokenizer st)
 	{
 		boolean flag = false;
 
@@ -63,7 +63,7 @@ public class ResumeDaoImpl implements ResumeDao {
 		if(flag)
 			at.add(fl);
 
-	}*/ //End of perform2 method
+	}//End of perform2 method
 
 	public String pdfToTextConvertor(File file)
 	{
@@ -239,13 +239,13 @@ public class ResumeDaoImpl implements ResumeDao {
 			File[] fls = new File(filePath).listFiles();
 
 			//2nd way to search by using Parallel Stream forEach method
-			/*af = Arrays.asList(fls);
+			af = Arrays.asList(fls);
 			final StringTokenizer sf = st;
 
-			af.parallelStream().forEach(f1 -> perform2(f1,searchText,sf));*/
+			af.parallelStream().forEach(f1 -> perform2(f1,searchText,sf));
 
 			//1st way to search by using simple For-Loop
-			for(File fl : fls)
+			/*for(File fl : fls)
 			{
 				if(fl.isFile())
 				{
@@ -286,14 +286,14 @@ public class ResumeDaoImpl implements ResumeDao {
 				{
 					af.add(fl);
 				}
-			}
+			}*/
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		return af;
-		//return at;
+		//return af;
+		return at;
 
 	}//End of perform function
 
