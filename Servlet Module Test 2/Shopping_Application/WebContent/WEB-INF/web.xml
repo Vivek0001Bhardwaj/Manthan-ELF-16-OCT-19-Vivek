@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Shopping_Application</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+		<servlet-name>loginUserJsp</servlet-name>
+		<jsp-file>/LoginUser.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>loginUserJsp</servlet-name>
+		<url-pattern>/loginUserJsp</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>rsgUserJsp</servlet-name>
+		<jsp-file>/RegisterUser.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>rsgUserJsp</servlet-name>
+		<url-pattern>/rsgUserJsp</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>fgtPassJsp</servlet-name>
+		<jsp-file>/ForgotPassword.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>fgtPassJsp</servlet-name>
+		<url-pattern>/fgtPassJsp</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>loginResultJsp</servlet-name>
+		<jsp-file>/LoginResult.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>loginResultJsp</servlet-name>
+		<url-pattern>/loginResultJsp</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>crossedLimitJsp</servlet-name>
+		<jsp-file>/CrossedLimit.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>crossedLimitJsp</servlet-name>
+		<url-pattern>/crossedLimitJsp</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>orderBuyResultJsp</servlet-name>
+		<jsp-file>/OrderBuyResultJsp.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>orderBuyResultJsp</servlet-name>
+		<url-pattern>/orderBuyResultJsp</url-pattern>
+	</servlet-mapping>
+  
+</web-app>
