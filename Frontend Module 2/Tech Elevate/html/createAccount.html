@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Account</title>
+
+    <link rel="stylesheet" href="/Tech Elevate/css/createAccount.css">
+
+<Script>
+  let saveFile = () => {
+    	
+      // Get the data from each element on the form.
+    const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const psw = document.getElementById('psw');
+      const pswrepeat = document.getElementById('pswrepeat');
+      const phNo = document.getElementById('ph');
+      
+      // This variable stores all the data.
+      let data = 
+          '\r Name: ' + name.value + ' \r\n ' +  
+          'Email: ' + email.value + ' \r\n ' + 
+          'Password: ' + psw.value + ' \r\n ' + 
+          'Confirm Password: ' + pswrepeat.value+ ' \r\n ' + 
+          'Phone Number: ' + ph.value;
+      
+      // Convert the text to BLOB.
+      const textToBLOB = new Blob([data], { type: 'text/plain' });
+      const sFileName = 'createFormData.txt';	   // The file to save the data.
+    
+      let newLink = document.createElement("a");
+      newLink.download = sFileName;
+    
+      if (window.webkitURL != null) {
+          newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+      }
+      else {
+          newLink.href = window.URL.createObjectURL(textToBLOB);
+          newLink.style.display = "none";
+          document.body.appendChild(newLink);
+      }
+    
+      newLink.click(); 
+    }
+</Script>
+
+</head>
+<body>
+    <h2>Create Account</h2>
+   <div id="id01">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" action="createResult.html" id="formToSave">
+          <div class="container">
+            <h1>Sign Up</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+            <label for="name"><b>Name</b></label>
+            <input type="text" id="name" placeholder="Enter Email" name="email" required>
+            
+            <label for="email"><b>Email</b></label>
+            <input type="email" id="email" placeholder="Enter Email" name="email" required>
+      
+            <label for="psw"><b>Password</b></label>
+            <input type="password" id="psw" placeholder="Enter Password" name="psw" required>
+      
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" id="pswrepeat" placeholder="Repeat Password" name="psw-repeat" required>
+
+            <label for="ph"><b>Phone Number</b></label>
+            <input type="text" id="ph" placeholder="Enter Phone Number" name="ph" minlength="10" maxlength="10" required>
+            
+            <label>
+              <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+            </label>
+      
+            <div class="clearfix">
+                <button type="reset" class="resetbtn">Reset</button>
+              <button type="submit" class="signupbtn" onclick="saveFile()">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+</body>
+</html>

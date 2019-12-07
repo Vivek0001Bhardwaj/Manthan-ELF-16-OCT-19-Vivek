@@ -1,0 +1,196 @@
+<html lang="en" class="gr__cdpn_io">
+<head>
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Currency Calculator And Weight Converter</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<link rel="stylesheet" media="screen" href="https://static.codepen.io/assets/fullpage/fullpage-5685e76af3f282c94e211da3f3eb04396287d49fae7709088060651307b9d7a4.css">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic" rel="stylesheet">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+
+<link rel="stylesheet" href="/Currency Converter and Weight Converter/css/weight.css">
+<script>
+    if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+    }
+</script>
+<style>
+    html { font-size: 15px; }
+    html, body { margin: 0; padding: 0; min-height: 100%; }
+    body { height:100%; display: flex; flex-direction: column; }
+    .referer-warning {
+        background: black;
+        box-shadow: 0 2px 5px rgba(0,0,0, 0.5);
+        padding: 0.75em;
+        color: white;
+        text-align: center;
+        font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif;
+        line-height: 1.2;
+        font-size: 1rem;
+        position: relative;
+        z-index: 2;
+    }
+    .referer-warning h1 { font-size: 1.2rem; margin: 0; }
+    .referer-warning a { color: #56bcf9; } /* $linkColorOnBlack */
+</style>
+</head>
+<body class="" data-gr-c-s-loaded="true">
+  <div id="result-iframe-wrap" role="main">
+    <iframe id="result" srcdoc="<!DOCTYPE html>
+      <html lang=&quot;en&quot; >
+      
+      <head>
+      
+      <meta charset=&quot;UTF-8&quot;>
+      <link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico&quot; />
+      
+      <link rel=&quot;mask-icon&quot; type=&quot;&quot; href=&quot;https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg&quot; color=&quot;#111&quot; />
+      
+      <title>CodePen - JavaScript: Currency Calculator</title>
+      
+      
+      
+      <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css'>
+      
+      
+      <script>
+      window.console = window.console || function(t) {};
+      </script>
+      
+      
+      
+      <script>
+      if (document.location.search.match(/type=embed/gi)) {
+          window.parent.postMessage(&quot;resize&quot;, &quot;*&quot;);
+      }
+      </script>
+      
+      
+      </head>
+      
+      <body translate=&quot;no&quot; >
+          <div class=&quot;jumbotron&quot;>
+              <div class=&quot;container&quot;>
+                  <h2>Currency Calculator</h2>
+                  <p class=&quot;lead&quot;>Convert the currency</p>
+                  <form class=&quot;form-inline&quot;>
+                      <div class=&quot;form-group mb-2&quot;>
+                          <input type=&quot;number&quot; class=&quot;form-control&quot; id=&quot;amount&quot;/>
+                      </div>
+                      <div class=&quot;form-group mx-sm-3 mb-2&quot;>
+                          <select class=&quot;form-control&quot; id=&quot;currency-1&quot; required>
+                          <option>PLN</option>
+                          <option>EUR</option>
+                          <option>USD</option>
+                          </select>
+                      </div>
+                      <div class=&quot;form-group mx-sm-3 mb-2&quot;>
+                          <label>convert to</label>
+                          <select class=&quot;form-control&quot; id=&quot;currency-2&quot; required>
+                          <option>EUR</option>
+                          <option>USD</option>
+                          <option>PLN</option>
+                          </select>
+                      </div>  
+                      <button class=&quot;btn calculate-btn btn-primary mb-2&quot;>Show me the result!</button>
+                  </form>
+                  <div class=&quot;result&quot;>
+                      <p>
+                          <span class=&quot;given-amount&quot;></span> 
+                          <span class=&quot;base-currency&quot;></span>
+                          <span class=&quot;final-result&quot;></span> 
+                          <span class=&quot;second-currency&quot;></span>
+                      </p>
+                  </div>
+              </div> 
+          </div>
+          <script src=&quot;https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js&quot;></script>
+      
+      
+          <script id=&quot;rendered-js&quot; >
+              var crrncy = { 'EUR': { 'PLN': 4.15, 'USD': 0.83 }, 'USD': { 'PLN': 3.45, 'EUR': 1.2 } };
+              var btn = document.querySelector('.calculate-btn');
+              var baseCurrencyInput = document.getElementById('currency-1');
+              var secondCurrencyInput = document.getElementById('currency-2');
+              var amountInput = document.getElementById('amount');
+              var toShowAmount = document.querySelector('.given-amount');
+              var toShowBase = document.querySelector('.base-currency');
+              var toShowSecond = document.querySelector('.second-currency');
+              var toShowResult = document.querySelector('.final-result');
+              
+              function convertCurrency(event) {
+              event.preventDefault();
+              var amount = amountInput.value;
+              var from = baseCurrencyInput.value;
+              var to = secondCurrencyInput.value;
+              var result = 0;
+              
+              try {
+                  if (from == to) {
+                  result = amount;
+                  } else {
+                  result = amount * crrncy[from][to];
+                  }
+              }
+              catch (err) {
+                  result = amount * (1 / crrncy[to][from]);
+              }
+              
+              toShowAmount.innerHTML = amount;
+              toShowBase.textContent = from + ' = ';
+              toShowSecond.textContent = to;
+              toShowResult.textContent = result;
+              }
+              
+              btn.addEventListener('click', convertCurrency);
+                  //# sourceURL=pen.js
+          </script>
+
+      </body>
+      </html>">
+    </iframe>
+  </div>
+
+  <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <h1 class="display-4 text-center">Weight Converter</h1>
+            <form>
+              <div class="form-group">
+                <input id="lbsInput" type="number" class="form-control form-control-lg" placeholder="Enter Kilos...">
+    
+              </div>
+            </form>
+            <div id="output">
+              <div class="card card-primary mb-2">
+                <div class="card-block">
+                  <h4>Grams:</h4>
+                  <div id="gramsOutput"></div>
+                </div>
+              </div>
+    
+              <div class="card card-success mb-2">
+                <div class="card-block">
+                  <h4>Kilograms:</h4>
+                  <div id="kgOutput"></div>
+                </div>
+              </div>
+    
+              <div class="card card-danger mb-2">
+                <div class="card-block">
+                  <h4>Ounces:</h4>
+                  <div id="ozOutput"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="/Currency Converter and Weight Converter/js/weight.js"></script>
+</body>
+</html>
